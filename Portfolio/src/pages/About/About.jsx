@@ -6,6 +6,7 @@ import Card from "./Card";
 import LaptopIcon from "@mui/icons-material/Laptop";
 import EmojiObjectsIcon from "@mui/icons-material/EmojiObjects";
 import SchoolIcon from "@mui/icons-material/School";
+import GithubActivity from "../../components/GithubActivity";
 
 function About() {
   return (
@@ -58,6 +59,7 @@ function About() {
 
         </div>
       </div>
+   
 
       {/* Education Section */}
       <div className="mt-12">
@@ -88,6 +90,16 @@ function About() {
           </div>
         </div>
       </div>
+
+ {/* Activity Section */}
+      <div className="mb-10 mt-10">
+        <h1 className="text-2xl font-bold mb-6">GitHub Activity</h1>
+<img
+  src="https://github-readme-stats.vercel.app/api?username=nilamanidhal&show_icons=true&theme=github_dark"
+  alt="Nilamani's GitHub Stats"
+/>
+      </div>
+
     </motion.div>
   );
 }
