@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-
 import Skillbox from "./Skillbox";
 import images from "../../Images";
 
@@ -39,22 +38,25 @@ function Skill() {
           {skills.map((skill, index) => (
             <div key={index} className="mb-6">
               <div className="mb-2 font-medium">{skill.name}</div>
-              <div className="w-full h-2 bg-gray-700 rounded-full">
-                <div
-                  className="h-2 bg-amber-400 rounded-full transition-all duration-700"
-                  style={{ width: skill.level }}
-                ></div>
+              <div className="w-full h-2 bg-gray-700 rounded-full overflow-hidden">
+                <motion.div
+                  className="h-2 bg-amber-400 rounded-full"
+                  initial={{ width: 0 }}
+                  animate={{ width: skill.level }}
+                  transition={{
+                    duration: 1,
+                    delay: index * 0.3,
+                    ease: "easeInOut",
+                  }}
+                />
               </div>
             </div>
           ))}
         </div>
       </div>
 
-
-
- {/* Language Section */}
+      {/* Language Section */}
       <div className="mt-15">
-        {/* Title */}
         <h1 className="text-3xl font-extrabold uppercase mb-10 text-center">
           Languages
         </h1>
@@ -65,31 +67,25 @@ function Skill() {
         </div>
       </div>
 
-
       {/* Frontend Section */}
       <div className="mt-10">
-        {/* Title */}
         <h1 className="text-3xl font-extrabold uppercase mb-10 text-center">
           Frontend
         </h1>
         <div className="flex justify-center flex-wrap gap-8 items-center">
           <Skillbox name={"HTML"} alt={"HTML"} img={images.html} />
           <Skillbox name={"CSS"} alt={"CSS"} img={images.css} />
-
           <Skillbox name={"React"} alt={"React"} img={images.react} />
           <Skillbox name={"Tailwind"} alt={"tailwind"} img={images.tailwind} />
         </div>
       </div>
 
-
       {/* Backend Section */}
       <div className="mt-15">
-        {/* Title */}
         <h1 className="text-3xl font-extrabold uppercase mb-10 text-center">
           Backend
         </h1>
         <div className="flex justify-center flex-wrap gap-8 items-center">
-          {/* <Skillbox name={"JavaScript"} alt={"JavaScript"} img={images.js} /> */}
           <Skillbox name={"Nodejs"} alt={"Nodejs"} img={images.nodejs} />
           <Skillbox name={"Expresjs"} alt={"exjs"} img={images.expressjs} />
           <Skillbox name={"MongoDB"} alt={"Mdb"} img={images.mongodb} />
@@ -99,7 +95,6 @@ function Skill() {
 
       {/* Others */}
       <div className="mt-15">
-        {/* Title */}
         <h1 className="text-3xl font-extrabold uppercase mb-10 text-center">
           Others
         </h1>
@@ -114,3 +109,4 @@ function Skill() {
 }
 
 export default Skill;
+

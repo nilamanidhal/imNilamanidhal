@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 import educationData from "../../data/education";
 
 // Material icons
@@ -6,9 +7,11 @@ import Card from "./Card";
 import LaptopIcon from "@mui/icons-material/Laptop";
 import EmojiObjectsIcon from "@mui/icons-material/EmojiObjects";
 import SchoolIcon from "@mui/icons-material/School";
-import GithubActivity from "../../components/GithubActivity";
+import CloseIcon from "@mui/icons-material/Close";
 
 function About() {
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -32,13 +35,24 @@ function About() {
           Gandhi Institute for Education and Technology, Bhubaneswar. Seeking opportunities to apply
           and expand my skills in a professional setting.
         </p>
-        <a
-          href="/NILAMANI_DHAL_CV.pdf"
-          download="NILAMANI_DHAL_CV.pdf"
-          className="mt-4 bg-amber-300 text-black px-6 py-2 rounded-md hover:bg-amber-400 transition-colors shadow-xl/50 custom-resume-btn"
-        >
-          View Resume
-        </a>
+
+        {/* Buttons Row */}
+        <div className="flex gap-4 flex-wrap">
+          <a
+            href="/NILAMANI_DHAL_CV.pdf"
+            download="NILAMANI_DHAL_CV.pdf"
+            className="bg-amber-300 text-black px-6 py-2 rounded-md hover:bg-amber-400 transition-colors shadow-xl/50 custom-resume-btn"
+          >
+            View Resume
+          </a>
+
+          <button
+            onClick={() => setShowModal(true)}
+            className="bg-amber-300 text-black px-6 py-2 rounded-md hover:bg-amber-400 transition-colors shadow-xl/50 custom-resume-btn"
+          >
+            View GitHub Activity
+          </button>
+        </div>
       </div>
 
       {/* Card Section */}
@@ -56,10 +70,8 @@ function About() {
             title="Data Structures and Algorithms"
             desc="I've core knowladge Data Structures and a strong foundation on problem solving skill."
           />
-
         </div>
       </div>
-   
 
       {/* Education Section */}
       <div className="mt-12">
@@ -91,14 +103,28 @@ function About() {
         </div>
       </div>
 
- {/* Activity Section */}
-      <div className="mb-10 mt-10">
-        <h1 className="text-2xl font-bold mb-6">GitHub Activity</h1>
-<img
-  src="https://github-readme-stats.vercel.app/api?username=nilamanidhal&show_icons=true&theme=github_dark"
-  alt="Nilamani's GitHub Stats"
-/>
-      </div>
+    {/* Modal */}
+{showModal && (
+  <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
+    <div className="bg-[#1e1e1f] p-6 rounded-lg shadow-lg relative w-[90%] max-w-2xl md:max-w-4xl">
+      {/* Close Button */}
+      <button
+        onClick={() => setShowModal(false)}
+        className="absolute top-3 right-3 text-gray-400 hover:text-white"
+      >
+        <CloseIcon />
+      </button>
+
+      <img
+        src="https://camo.githubusercontent.com/017219ee383722b85a4d595f2214c6b5df2bbb80de35ab683613d2596cad7cfe/68747470733a2f2f6769746875622d726561646d652d61637469766974792d67726170682e76657263656c2e6170702f67726170683f757365726e616d653d6e696c616d616e696468616c267468656d653d746f6b796f2d6e69676874"
+        alt="Nilamani's GitHub Stats"
+        className="rounded-lg w-full"
+      />
+    </div>
+  </div>
+)}
+
+{/* add */}
 
     </motion.div>
   );
