@@ -16,9 +16,11 @@
     "@mui/material": "^7.2.0",
     "@tailwindcss/vite": "^4.1.11",
     "framer-motion": "^12.23.1",
+    "lucide-react": "^0.539.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-github-calendar": "^4.5.9",
+    "react-icons": "^5.5.0",
     "react-router-dom": "^7.6.3",
     "sweetalert2": "^11.22.2"
   },

@@ -186,7 +186,7 @@ const Sidebar = () => {
              <a
               target="__blank"
               href="https://www.codechef.com/users/nilamanidhal"
-              className="hover:text-amber-300 duration-200"
+              className="hover:text-amber-300 duration-200 scale-125"
             >
               <CodeIcon />
             </a>
